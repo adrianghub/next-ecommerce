@@ -1,6 +1,12 @@
 {
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis a expedita, eaque, ea voluptatibus soluta vero totam aut placeat neque earum fuga ducimus. Ex eum voluptatibus rerum repellat delectus facilis.",
-  "thumbnail": "https://picsum.photos/id/1060/536/354",
-  "thumbnailAlt": "Some thumbnail",
-  "rating": 4.5
+  "common": {
+    "logoTitle": "Next Ecommerce"
+  },
+  
+  "product": {
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis a expedita, eaque, ea voluptatibus soluta vero totam aut placeat neque earum fuga ducimus. Ex eum voluptatibus rerum repellat delectus facilis.",
+    "thumbnail": "https://picsum.photos/id/1060/536/354",
+    "thumbnailAlt": "Some thumbnail",
+    "rating": 4.5
+  }
 }

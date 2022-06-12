@@ -7,25 +7,24 @@ interface ActiveLinkProps {
   additionalClasses?: string;
 }
 
-export const NavLink = ({
-  to,
-  text,
-  additionalClasses,
-}: ActiveLinkProps) => {
+export const NavLink = ({ to, text, additionalClasses }: ActiveLinkProps) => {
   const { pathname } = useRouter();
   const isSelected = pathname === to;
+  const selectedClasses = 'selected';
   const classes =
     isSelected && additionalClasses
-      ? `selected ${additionalClasses}`
+      ? `${selectedClasses} ${additionalClasses}`
       : isSelected
-      ? 'selected'
+      ? selectedClasses
       : additionalClasses
       ? additionalClasses
       : '';
 
   return (
     <Link href={to} passHref>
-      <a className={classes}>{text}</a>
+      <a className={`block py-2 pr-4 pl-3 md:bg-transparent md:p-0 ${classes}`}>
+        {text}
+      </a>
     </Link>
   );
 };
