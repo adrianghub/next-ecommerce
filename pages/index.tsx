@@ -1,6 +1,6 @@
-import { product } from 'dummy/data.json';
+import data from 'dummy/data.json';
 import { Product } from 'components';
 
-const Home = () => <Product data={product} />;
+const Home = () => <Product data={data.product} />;
 
 export default Home;
