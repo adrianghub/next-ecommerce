@@ -17,7 +17,7 @@ export const NavLink = ({
   const { pathname } = useRouter();
   const isSelected = pathname === to;
   const selectedClasses = `${
-    additionalSelectedClasses ? additionalSelectedClasses : ''
+    additionalSelectedClasses ? additionalSelectedClasses : ``
   }`;
   const classes =
     isSelected && additionalClasses
@@ -26,11 +26,15 @@ export const NavLink = ({
       ? selectedClasses
       : additionalClasses
       ? additionalClasses
-      : '';
+      : ``;
 
   return (
     <Link href={to} passHref>
-      <a className={`${!isSelected ? 'border-transparent' : 'text-indigo-700'} ${classes}`}>
+      <a
+        className={`${
+          !isSelected ? `border-transparent` : `text-indigo-700`
+        } ${classes}`}
+      >
         {text}
       </a>
     </Link>

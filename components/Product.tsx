@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface ProductProps {
   data: {
     description: string;
@@ -12,7 +14,7 @@ export const Product = ({ data }: ProductProps) => {
 
   return (
     <div className="grid gap-6 sm:grid-cols-2">
-      <img
+      <Image
         className="rounded-lg shadow-lg shadow-black"
         src={thumbnail}
         alt={thumbnailAlt}

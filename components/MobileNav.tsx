@@ -1,9 +1,10 @@
 import { Fragment } from 'react';
 import { Transition, Dialog, Tab } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
-import { classNames } from 'utils';
+import { classNames } from 'utils/classNames';
 import { NavLink } from './NavLink';
 import data from 'dummy/data.json';
+import Image from 'next/image';
 
 interface MobileNavProps {
   show: boolean;
@@ -11,7 +12,7 @@ interface MobileNavProps {
 }
 
 const MobileNav = ({ show, setShowSidebar }: MobileNavProps) => {
-  const { common, navigation } = data;
+  const { navigation } = data;
 
   return (
     <Transition.Root show={show} as={Fragment}>
@@ -64,9 +65,9 @@ const MobileNav = ({ show, setShowSidebar }: MobileNavProps) => {
                         className={({ selected }) =>
                           classNames(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
-                              : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium',
+                              ? `text-indigo-600 border-indigo-600`
+                              : `text-gray-900 border-transparent`,
+                            `flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium`,
                           )
                         }
                       >
@@ -88,7 +89,7 @@ const MobileNav = ({ show, setShowSidebar }: MobileNavProps) => {
                             className="group relative text-sm"
                           >
                             <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <img
+                              <Image
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
                                 className="object-center object-cover"
@@ -150,6 +151,7 @@ const MobileNav = ({ show, setShowSidebar }: MobileNavProps) => {
               </div>
 
               <div className="border-t border-gray-200 py-6 px-4">
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href="#" className="-m-2 p-2 flex items-center">
                   <span className="sr-only">, change currency</span>
                 </a>
