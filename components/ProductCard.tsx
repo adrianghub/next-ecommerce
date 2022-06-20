@@ -3,18 +3,18 @@ import Link from 'next/link';
 import { formatPrice } from 'utils/formatPrice';
 import { ProductDetailsProps } from './ProductDetails';
 
-type ProductsProps = Pick<
+type ProductCardProps = Pick<
   ProductDetailsProps,
   'title' | 'imgSrc' | 'category' | 'price' | 'id'
 >;
 
-export const Products = ({
+export const ProductCard = ({
   id,
   title,
   imgSrc,
   category,
   price,
-}: ProductsProps) => {
+}: ProductCardProps) => {
   return (
     <div className="w-full p-4 my-4 bg-white md:p-5 lg:p-6">
       <div className="flex flex-col items-center justify-between w-full h-full ">
@@ -39,7 +39,7 @@ export const Products = ({
           </h4>
         </div>
         <div className="flex items-baseline justify-between w-full mt-4">
-          <button>Dodaj do koszyka</button>
+          <button>Add to card</button>
           <p className="font-sans font-bold text-right text-transparent bg-clip-text bg-gradient-to-br from-emerald-500 to-emerald-800">
             {formatPrice.format(price)}
           </p>

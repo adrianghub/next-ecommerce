@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { ProductDetails, ProductSkeleton } from 'components';
+import { StoreAPIResponse } from 'interfaces';
 
 const ProductPage = ({
   data,
@@ -33,27 +34,25 @@ const ProductPage = ({
       {isFallback ? (
         <ProductSkeleton />
       ) : (
-        data && (
-          <ProductDetails
-            data={{
-              id: data.id,
-              title: data.title,
-              imgSrc: data.image,
-              category: data.category,
-              price: data.price,
-              desc: data.description,
-              longDesc: data.longDescription,
-              rating: data.rating.rate,
-            }}
-          />
-        )
+        <ProductDetails
+          data={{
+            id: data.id,
+            title: data.title,
+            imgSrc: data.image,
+            category: data.category,
+            price: data.price,
+            desc: data.description,
+            longDesc: data.longDescription,
+            rating: data.rating.rate,
+          }}
+        />
       )}
     </div>
   );
 };
 
 export default ProductPage;
-const NUMBER_OF_STATIC_PRODUCTS = 275;
+const NUMBER_OF_STATIC_PRODUCTS = 25;
 
 export const getStaticPaths = async () => {
   const paths = Array.from({ length: NUMBER_OF_STATIC_PRODUCTS }, (_, i) => ({
@@ -93,19 +92,3 @@ export const getStaticProps = async ({
     },
   };
 };
-
-export interface StoreAPIResponse {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rating;
-  longDescription: string;
-}
-
-export interface Rating {
-  rate: number;
-  count: number;
-}

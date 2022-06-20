@@ -7,9 +7,9 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => (
-  <div className="flex flex-col max-w-6xl mx-auto min-h-screen px-6">
+  <div className="flex flex-col w-full mx-auto min-h-screen max-w-screen-2xl">
     <Header />
-    <main className="flex-grow py-6">{children}</main>
+    <main className="flex-grow py-6 px-6">{children}</main>
     <Footer />
   </div>
 );

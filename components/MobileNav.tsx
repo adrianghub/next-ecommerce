@@ -90,6 +90,7 @@ const MobileNav = ({ show, setShowSidebar }: MobileNavProps) => {
                           >
                             <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
                               <Image
+                                layout="fill"
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
                                 className="object-center object-cover"

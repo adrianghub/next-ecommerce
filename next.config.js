@@ -14,6 +14,7 @@ const nextConfig = {
       'naszsklep-api.vercel.app',
       'media.graphcms.com',
       'media.graphassets.com',
+      'tailwindui.com',
     ],
   },
   formats: ['image/avif', 'image/webp'],

@@ -1,28 +1,19 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { Background, ProductSkeleton, Products, Pagination } from 'components';
-
-const ITEMS_PER_PAGE = 25;
-const PAGES_COUNT = 10;
-const FAKE_PRODUCT_COUNT = 8;
-const PAGE_NUM_LIMIT = 3;
-
-export interface StoreAPIResponse {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  longDescription: string;
-  image: string;
-  rating: Rating;
-}
-
-export interface Rating {
-  rate: number;
-  count: number;
-}
+import {
+  Background,
+  ProductSkeleton,
+  Pagination,
+  ProductCard,
+} from 'components';
+import { StoreAPIResponse } from 'interfaces';
+import {
+  FAKE_PRODUCT_COUNT,
+  ITEMS_PER_PAGE,
+  PAGES_COUNT,
+  PAGE_NUM_LIMIT,
+} from '../../constants';
 
 const ProductsPage = ({
   data,
@@ -78,14 +69,14 @@ const ProductsPage = ({
         ) : (
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
             {data &&
-              data.map((item) => (
-                <li key={item.id}>
-                  <Products
-                    id={item.id}
-                    title={item.title}
-                    imgSrc={item.image}
-                    category={item.category}
-                    price={item.price}
+              data.map((product) => (
+                <li key={product.id}>
+                  <ProductCard
+                    id={product.id}
+                    title={product.title}
+                    imgSrc={product.image}
+                    category={product.category}
+                    price={product.price}
                   />
                 </li>
               ))}
